@@ -1,7 +1,7 @@
 "use client";
 import BaseLayout from "@/components/layout/BaseLayout";
 import AdminPopup from "@/components/Popup";
-import "@/app/styles/style.css";
+import "@styles/style.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import "reactjs-popup/dist/index.css";
