@@ -1,6 +1,6 @@
 import { get } from "http";
 import { request } from 'http';
-const base_url = "http://localhost";
+const base_url = "http://20.93.2.27";
 const port = 3001;
 const klassementUrl = `${base_url}:${port}/api/speeldagen/`;
 const usersUrl = `${base_url}:${port}/api/users/`;
@@ -178,7 +178,7 @@ export function getAllUsers() {
 export function updateUserBetaald(userId, newBetaaldValue) {
   return new Promise((resolve, reject) => {
     const options = {
-      hostname: 'localhost',
+      hostname: '20.93.2.27',
       port: port,
       path: `/api/users/${userId}`,
       method: 'PATCH',
@@ -283,7 +283,7 @@ export function putSpeeldagVote(obj, speeldagId){
 export function postWedstrijd(date, thuis, uit, speeldagId) {
   return new Promise((resolve, reject) => {
     const options = {
-      hostname: 'localhost',
+      hostname: '20.93.2.27',
       port: port,
       path: `/api/speeldagen/${speeldagId}/wedstrijden`,
       method: 'POST',
@@ -327,7 +327,7 @@ export function postWedstrijd(date, thuis, uit, speeldagId) {
 export function patchWedstrijd(date, thuis, uit, resultaat, wedstrijdId, seizoenId) {
   return new Promise((resolve, reject) => {
     const options = {
-      hostname: 'localhost',
+      hostname: '20.93.2.27',
       port: port,
       path: `/api/wedstrijden/${wedstrijdId}`,
       method: 'PATCH',
@@ -416,7 +416,7 @@ export function patchSpeeldag(schiftingsvraag,schiftingsantwoord, startDatum, ei
 export function postSpeeldag(schiftingsvraag, schiftingsantwoord, startDatum, einddatum, seizoenId ) {
   return new Promise((resolve, reject) => {
     const options = {
-      hostname: 'localhost',
+      hostname: '20.93.2.27',
       port: port,
       path: `/api/seizoenen/${seizoenId}/speeldagen`,
       method: 'POST',
@@ -464,7 +464,7 @@ export function postSpeeldag(schiftingsvraag, schiftingsantwoord, startDatum, ei
 export function deleteWedstrijd(wedstrijdId) {
   return new Promise((resolve, reject) => {
     const options = {
-      hostname: 'localhost',
+      hostname: '20.93.2.27',
       port: port,
       path: `/api/wedstrijden/${wedstrijdId}`,
       method: 'DELETE',

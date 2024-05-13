@@ -27,7 +27,7 @@ export default function SignupForm() {
         }
         console.log(username, email, password);
         try {
-            const response = await fetch('http://localhost:3001/api/users/', {
+            const response = await fetch('http://20.93.2.27:3001/api/users/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
