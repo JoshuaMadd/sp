@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { getSpeeldag, patchSpeeldagVote, getUserVotesBySpeeldagId } from "./api_calls/call.js";
+import { getSpeeldag, patchSpeeldagVote, getUserVotesBySpeeldagId } from "../components/api_calls/call";
 
 export default function WedstrijdPanel({ speeldag_id }) {
   const [state, setState] = useState({

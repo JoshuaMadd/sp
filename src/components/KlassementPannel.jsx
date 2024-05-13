@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
 import {
   getSpeeldagen,
-  getKlassement,
   getUser,
-  getSeizoenen,
   getKlassementSpeeldag,
-  getKlassementSeizoen,
-} from "./api_calls/call.js";
+} from "../components/api_calls/call";
 import "@/styles/Klassement.css"
 import 'react-bootstrap';
 import KlassementSeizoenPannel from "@/Components/KlassementSeizoenPannel";

@@ -9,7 +9,7 @@ import SeizoenPanel from "@/Components/SeizoenPanel"
 import WedstrijdPanel from "@/Components/WedstrijdPanel"
 import "@/styles/Home.css"
 import { useState } from "react";
-import { getSpeeldagen } from "@/Components/api_calls/call";
+import { getSpeeldagen } from "../components/api_calls/call";
 
 export default function Home() {
   const [leftPanelSelected, setLeftPanelSelected] = useState(true);
