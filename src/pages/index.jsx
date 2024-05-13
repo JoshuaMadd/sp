@@ -1,15 +1,15 @@
 'use client'
-import BaseLayout from "@/components/layout/BaseLayout";
+import BaseLayout from "@/layout/BaseLayout";
 import React, { useEffect } from "react";
 // import './globals.css';
 
-import KlassementPanel from "@/components/KlassementPannel"
-import KlassementSeizoenPannel from "@/components/KlassementSeizoenPannel";
-import SeizoenPanel from "@/components/SeizoenPanel"
-import WedstrijdPanel from "@/components/WedstrijdPanel"
-import "../app/styles/Home.css"
+import KlassementPanel from "@/Components/KlassementPannel"
+import KlassementSeizoenPannel from "@/Components/KlassementSeizoenPannel";
+import SeizoenPanel from "@/Components/SeizoenPanel"
+import WedstrijdPanel from "@/Components/WedstrijdPanel"
+import "@/styles/Home.css"
 import { useState } from "react";
-import { getSpeeldagen } from "@/components/api_calls/call";
+import { getSpeeldagen } from "@/Components/api_calls/call";
 
 export default function Home() {
   const [leftPanelSelected, setLeftPanelSelected] = useState(true);
@@ -39,6 +39,7 @@ export default function Home() {
 
   return (
     <>
+
     <BaseLayout>
       <div className="pageContainer">
         <div className="smallColumn">
@@ -54,8 +55,9 @@ export default function Home() {
             </button>
           </div>
           <div>
+            {console.log('speeldagen',speeldagen.seizoenID)}
           {showklassementSeizoenPannel ? (
-            <KlassementSeizoenPannel/>
+            <KlassementSeizoenPannel seizoen_id={speeldagen.seizoenID}/>
         ) : (
           <>
             {leftPanelSelected ?(

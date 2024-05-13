@@ -29,19 +29,19 @@
       "@Components/*": [
         "./src/components"
       ],
+      "@Layout/*": [
+        "./src/layout"
+      ],
       "@styles/*": [
-        "./src/app/styles"
+        "./src/app/css"
       ]
     },
     "strictNullChecks": true
   },
+  "include": [
+    ".next/types/**/*.ts"
+  ],
   "exclude": [
     "node_modules"
-  ],
-  "include": [
-    "next-env.d.ts",
-    ".next/types/**/*.ts",
-    "**/*.ts",
-    "**/*.tsx"
   ]
 }

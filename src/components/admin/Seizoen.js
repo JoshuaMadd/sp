@@ -1,4 +1,4 @@
-import "@/app/styles/style.css";
+import "@/styles/style.css";
 import Link from "next/link";
 
 export default function Seizoen( { seizoen }) {
@@ -10,6 +10,9 @@ export default function Seizoen( { seizoen }) {
           <Link
             href={{
               pathname: "admin/speeldagen",
+              query: {
+                seizoenId: seizoen._id,
+              },
             }}
           >
             Toon speeldagen

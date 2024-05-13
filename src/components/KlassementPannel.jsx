@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from "react";
 import {
   getSpeeldagen,
+  getKlassement,
   getUser,
+  getSeizoenen,
   getKlassementSpeeldag,
-} from "@/components/api_calls/call.js";;
-import "../app/styles/Klassement.css";
+  getKlassementSeizoen,
+} from "./api_calls/call.js";
+import "@/styles/Klassement.css"
 import 'react-bootstrap';
-import KlassementSeizoenPannel from "@/components/KlassementSeizoenPannel";
+import KlassementSeizoenPannel from "@/Components/KlassementSeizoenPannel";
 
 
 export default function KlassementPannel(speeldag_id) {
   const [speeldagen, setSpeeldagen] = useState([]);
   const [klassement, setKlassement] = useState([]);
+  const [isLoading, setIsLoading] = useState(true); // Track loading state
 
   console.log('speeldagID', speeldag_id.speeldag_id);
 
@@ -24,11 +28,10 @@ export default function KlassementPannel(speeldag_id) {
       .then((klassement) => {
         return Promise.all(
           klassement.map((item) =>
-            getUser(item.user)
-              .then((user) => {
-                item.user = user.username;
-                return item;
-              })
+            getUser(item.user).then((user) => {
+              item.user = user.username;
+              return item;
+            })
           )
         );
       })
@@ -37,13 +40,20 @@ export default function KlassementPannel(speeldag_id) {
       })
       .catch((error) => {
         console.error(error.message);
+      })
+      .finally(() => {
+        setIsLoading(false); // Update loading state when done
       });
   }, [speeldag_id.speeldag_id]);
 
+  // Render only when klassement is no longer undefined
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <> 
-    {console.log('klassement',klassement)}
-    {klassement.length > 0 && (
+    {klassement && klassement.length > 0 && (
       <>
       <div className="">
         <div className="panelKlassement">
@@ -55,16 +65,21 @@ export default function KlassementPannel(speeldag_id) {
                   <th>Plaats</th>
                   <th>Naam</th>
                   <th>Score</th>
-                  {/*<th>Score per wedstrijd</th>*/}
+                  <th>Heeft joker gebruikt</th>
                 </tr>
               </thead>
               <tbody>
                 {klassement.map((item) => (
+                  <>
+                  {console.log('item', item)}
                   <tr key={item._id}>
                     <td>{item.plaats}</td>
                     <td>{item.user}</td>
                     <td>{item.score}</td>
+                    <td>{item.jokerGebruikt ? "Ja" : "Nee"}</td>
                   </tr>
+                  </>
+                  
                 ))}
               </tbody>
             </table>
@@ -76,7 +91,7 @@ export default function KlassementPannel(speeldag_id) {
       </div>
     </>
     )}
-    {klassement.length  === 0 && (
+    {klassement && klassement.length  === 0 && (
                 <p>Geen speeldagKlassement beschikbaar</p>
             )}
     

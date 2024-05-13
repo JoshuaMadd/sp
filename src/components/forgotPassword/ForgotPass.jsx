@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react';
-import Styles from './styles.module.css'
+import '@/styles/Login.css'
 import Link from 'next/link'
 
 export default function ForgotPassword() {
@@ -15,8 +15,8 @@ export default function ForgotPassword() {
 
   //form om email in te vullen
   return (
-    <form onSubmit={formSubmit} className={Styles.mainContainer}>
-      <div className={Styles.titleContainer}>
+    <form onSubmit={formSubmit} className="mainContainer">
+      <div className="titleContainer">
         <div>Wachtwoord vergeten?</div>
       </div>
       <br />
@@ -24,11 +24,11 @@ export default function ForgotPassword() {
         type="email"
         placeholder='Typ je e-mail'
         onChange={(e) => setEmail(e.target.value)}
-        className={Styles.inputBox}
+        className="inputBox"
       />
-      <label className={Styles.errorLabel}>{passwordError}</label>
+      <label className="errorLabel">{passwordError}</label>
       <br />
-      <button className={Styles.button} type='submit'>Herstel wachwoord</button>
+      <button className="button" type='submit'>Herstel wachwoord</button>
       <br />
       <div>Terug naar de login pagina <Link href='/login'>Klik hier</Link></div>
 
