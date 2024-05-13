@@ -6,7 +6,7 @@ import {
 } from "../components/api_calls/call";
 import "@/styles/Klassement.css"
 import 'react-bootstrap';
-import KlassementSeizoenPannel from "@/Components/KlassementSeizoenPannel";
+import KlassementSeizoenPannel from "../components/KlassementSeizoenPannel";
 
 
 export default function KlassementPannel(speeldag_id) {
